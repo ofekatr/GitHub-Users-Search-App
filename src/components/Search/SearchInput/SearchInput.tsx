@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-export default function SearchInput() {
-    return (
-        <div>
-            <h1>Search Input</h1>
-        </div>
-    )
+interface ISearchInputProps {
+    setSubmittedUser: React.Dispatch<React.SetStateAction<string>>
+}
+
+export default function SearchInput({ setSubmittedUser }) {
+  return (
+    <div>
+      <h1>Search Input</h1>
+    </div>
+  );
 }

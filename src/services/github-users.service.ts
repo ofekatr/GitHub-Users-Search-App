@@ -3,10 +3,10 @@ import axios from "axios";
 import config from "../config/config.json";
 
 export default function githubUsersEndpoint() {
-    const {githubUsers: githubUsersUrl } = config.urls;
+    const {githubSearch: githubSearchUrl } = config.urls;
 
     const endpoint = axios.create({
-        baseURL: githubUsersUrl,
+        baseURL: githubSearchUrl,
     });
 
     const getUsers = async (i_User: string, page: number = 1) => {

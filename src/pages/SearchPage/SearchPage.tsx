@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchInput from "../../components/Search/SearchInput/SearchInput";
 import SearchResultsList from "../../components/Search/SearchResultsList/SearchResultsList";
+import useUsersUpdater, {
+  IUseUpdateUsersOutput as IUseUsersUpdaterOutput,
+} from "../../hooks/useUsersUpdater";
 
 export default function SearchPage() {
+  const {
+    pageState,
+    submittedUserState: [submittedUser, setSubmittedUser],
+    users,
+    loading,
+    error,
+  }: IUseUsersUpdaterOutput = useUsersUpdater();
+
   return (
     <>
-      <SearchInput />
-      <SearchResultsList />
+      <SearchInput setSubmittedUser={setSubmittedUser} />
+      <SearchResultsList {...{ users, loading, error, pageState }} />
     </>
   );
 }
