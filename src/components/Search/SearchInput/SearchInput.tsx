@@ -20,7 +20,15 @@ export default function SearchInput({ setSubmittedUser }: ISearchInputProps) {
 
   return (
     <>
-      <input name="inputUser" />
+      <form action="#" onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          type="text"
+          name="inputUser"
+          value={inputUser}
+        />
+        <button type="submit">Search!</button>
+      </form>
     </>
   );
 }

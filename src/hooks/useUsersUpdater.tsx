@@ -26,7 +26,7 @@ export default function useUsersUpdater() {
       try {
         const newUsers = await getUsers(submittedUser, page);
         setUsers((prevUsers: string[]) => [
-          ...prevUsers,
+          ...(page > 1 ? prevUsers : []),
           ...newUsers.data.items.map((item: { login: string }) => item.login),
         ]);
       } catch (e) {
@@ -34,12 +34,7 @@ export default function useUsersUpdater() {
       }
     };
     updateUsers();
-  }, [page]);
-
-  useEffect(() => {
-    setUsers([]);
-    setPage(1);
-  }, [submittedUser]);
+  }, [page, submittedUser]);
 
   return {
     pageState: [page, setPage],

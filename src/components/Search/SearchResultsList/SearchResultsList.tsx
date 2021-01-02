@@ -13,5 +13,8 @@ export default function SearchResults({
   error,
   pageState,
 }: ISearchResultsProps) {
+
+  console.log(users);
+
   return <h1>Search Results List</h1>;
 }
