@@ -6,7 +6,10 @@ interface ISearchResultsProps {
   error: boolean;
   hasMore: boolean;
   submittedUser: string;
-  pageState: [number, React.Dispatch<React.SetStateAction<number>>];
+  pageState: [
+    { pageNumber: number },
+    React.Dispatch<React.SetStateAction<{ pageNumber: number }>>
+  ];
 }
 
 export default function SearchResults({
@@ -17,6 +20,7 @@ export default function SearchResults({
   submittedUser,
   pageState: [page, setPage],
 }: ISearchResultsProps) {
+  const { pageNumber } = page;
   const observer: any = useRef();
   const lastSearchResultRef = useCallback(
     (node) => {
@@ -25,7 +29,9 @@ export default function SearchResults({
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
           if (hasMore) {
-            setPage((prevPage) => prevPage + 1);
+            setPage(({ pageNumber: prevPageNumber }) => ({
+              pageNumber: prevPageNumber + 1,
+            }));
           }
         }
       });
