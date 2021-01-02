@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import githubUsersEndpoint from "../../services/github-users.service";
+import React, { useEffect, useState } from "react";
+import SearchPage from "../../pages/SearchPage/SearchPage";
 
 export default function Main() {
-  return <h1>Main</h1>;
+  return <SearchPage />;
 }
