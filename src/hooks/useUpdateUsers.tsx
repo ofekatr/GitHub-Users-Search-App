@@ -28,5 +28,5 @@ export default function useUpdateUsers(
     updateUsers();
   }, [i_Page, i_Limit]);
 
-  return { users, loading, hasMore, error };
+  return { users, loading, error };
 }
