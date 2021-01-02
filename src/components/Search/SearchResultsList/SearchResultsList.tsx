@@ -1,7 +1,8 @@
 import React, { useCallback, useRef } from "react";
+import SearchResult from "../SearchResult/SearchResult";
 
 interface ISearchResultsProps {
-  users: string[];
+  users;
   loading: boolean;
   error: boolean;
   hasMore: boolean;
@@ -40,6 +41,8 @@ export default function SearchResults({
     [loading, hasMore, error]
   );
 
+  console.log(users);
+
   return (
     <>
       <div>
@@ -48,9 +51,9 @@ export default function SearchResults({
             {users.map((user, i) => (
               <li
                 ref={i === users.length - 1 ? lastSearchResultRef : null}
-                key={user}
+                key={user.id}
               >
-                {user}
+                <SearchResult user={user} />
               </li>
             ))}
           </ul>

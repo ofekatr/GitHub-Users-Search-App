@@ -7,7 +7,7 @@ export interface IUseUpdateUsersOutput {
     React.Dispatch<React.SetStateAction<{ pageNumber: number }>>
   ];
   submittedUserState: [string, React.Dispatch<React.SetStateAction<string>>];
-  users: string[];
+  users;
   loading: boolean;
   error: boolean;
   hasMore: boolean;
@@ -33,9 +33,15 @@ export default function useUsersUpdater() {
       try {
         setLoading(true);
         const newUsers = (await getUsers(submittedUser, pageNumber)).data.items;
-        setUsers((prevUsers: string[]) => [
+        setUsers((prevUsers) => [
           ...(pageNumber > 1 ? prevUsers : []),
-          ...newUsers.map((item: { login: string }) => item.login),
+          ...newUsers.map(({ id, login, email, bio, avatar_url }) => ({
+            id,
+            login,
+            email,
+            bio,
+            avatar_url,
+          })),
         ]);
         setLoading(false);
         setHasMore(newUsers.length > 0);
