@@ -1,8 +1,11 @@
 import React, { useCallback, useRef } from "react";
+
 import SearchResult from "../SearchResult/SearchResult";
+import "./SearchResultsList.scss";
 
 interface ISearchResultsProps {
   users;
+  totalCount: number;
   loading: boolean;
   error: boolean;
   hasMore: boolean;
@@ -15,13 +18,13 @@ interface ISearchResultsProps {
 
 export default function SearchResults({
   users,
+  totalCount,
   loading,
   error,
   hasMore,
   submittedUser,
-  pageState: [page, setPage],
+  pageState: [, setPage],
 }: ISearchResultsProps) {
-  const { pageNumber } = page;
   const observer: any = useRef();
   const lastSearchResultRef = useCallback(
     (node) => {
@@ -41,9 +44,15 @@ export default function SearchResults({
     [loading, hasMore, error]
   );
 
+  const shouldDisplayLoading = () => loading && submittedUser && !error;
+  const shouldDisplayTotalCount = () => totalCount > -1;
+
   return (
-    <>
-      <div>
+    <div className="list-container">
+      {shouldDisplayTotalCount() && (
+        <div className="total-count-container">{`${totalCount} user(s) found`}</div>
+      )}
+      <div className="users-list">
         {users && (
           <ul>
             {users.map((user, i) => (
@@ -57,8 +66,8 @@ export default function SearchResults({
           </ul>
         )}
       </div>
-      <div>{loading && submittedUser && "Loading..."}</div>
+      <div>{shouldDisplayLoading() && "Loading..."}</div>
       <div>{error && "Error."}</div>
-    </>
+    </div>
   );
 }

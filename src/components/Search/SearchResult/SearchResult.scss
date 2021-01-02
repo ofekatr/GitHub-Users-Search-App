@@ -1,0 +1,67 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-result-container {
+  padding: 1em 1em 1em 0.5em;
+
+  display: grid;
+  grid-template-columns: 1fr 4fr 4.5fr;
+  grid-template-rows: 1fr 0.5fr 2fr;
+  column-gap: 0.75em;
+  row-gap: 0;
+
+  font-size: 1.25rem;
+
+  .image-container {
+    grid-area: 1 / 1 / 4 / 2;
+
+    width: 75%;
+
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+
+    img {
+      vertical-align: middle;
+      max-width: 100%;
+    }
+  }
+
+  p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .login-container {
+    position: relative;
+    grid-area: 2 / 2 / 3 / 3;
+
+    p {
+      top: 0;
+      margin: 0;
+    }
+  }
+
+  .email-container {
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    grid-area: 2 / 3 / 3 / 4;
+  }
+
+  .bio-container {
+    grid-area: 3 / 2 / 4 / 4;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .search-result-container {
+    grid-template-columns: 1.4fr 1.5fr 1.8fr;
+  }
+}

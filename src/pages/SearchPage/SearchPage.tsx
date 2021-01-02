@@ -15,13 +15,16 @@ export default function SearchPage() {
     loading,
     error,
     hasMore,
+    totalCount,
   }: IUseUsersUpdaterOutput = useUsersUpdater();
 
   return (
     <div className="search-page">
-      <SearchInput setSubmittedUser={setSubmittedUser} />
+      <div className="search-input-container">
+        <SearchInput setSubmittedUser={setSubmittedUser} />
+      </div>
       <SearchResultsList
-        {...{ users, loading, error, submittedUser, hasMore, pageState }}
+        {...{ users, totalCount, loading, error, submittedUser, hasMore, pageState }}
       />
     </div>
   );

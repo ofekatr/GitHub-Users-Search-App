@@ -8,6 +8,7 @@ export interface IUseUpdateUsersOutput {
   ];
   submittedUserState: [string, React.Dispatch<React.SetStateAction<string>>];
   users;
+  totalCount: number;
   loading: boolean;
   error: boolean;
   hasMore: boolean;
@@ -21,6 +22,7 @@ export default function useUsersUpdater() {
   const [error, setError] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [users, setUsers] = useState(new Array<string>());
+  const [totalCount, setTotalCount] = useState(-1);
 
   const { getUsers } = githubUsersEndpoint();
 
@@ -31,17 +33,19 @@ export default function useUsersUpdater() {
     const updateUsers = async () => {
       try {
         setLoading(true);
-        const newUsers = (await getUsers(submittedUser, pageNumber)).data.items;
+        const {items: newUsers, total_count} = (await getUsers(submittedUser, pageNumber)).data;
         setUsers((prevUsers) => [
           ...(pageNumber > 1 ? prevUsers : []),
-          ...newUsers.map(({ id, login, email, bio, avatar_url }) => ({
+          ...newUsers.map(({ id, login, email, bio, avatar_url, html_url }) => ({
             id,
             login,
             email,
             bio,
             avatar_url,
+            html_url
           })),
         ]);
+        setTotalCount(total_count);
         setLoading(false);
         setHasMore(newUsers.length > 0);
       } catch (e) {
@@ -62,5 +66,6 @@ export default function useUsersUpdater() {
     loading,
     error,
     hasMore,
+    totalCount,
   } as IUseUpdateUsersOutput;
 }

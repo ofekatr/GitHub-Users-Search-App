@@ -1,0 +1,25 @@
+.list-container {
+  margin: 5em;
+}
+
+.total-count-container {
+  font-size: 1.25rem;
+  font-weight: bolder;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .list-container {
+    max-width: 70vw;
+    margin: 2em;
+  }
+}

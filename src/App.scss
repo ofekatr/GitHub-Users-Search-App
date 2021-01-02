@@ -1,0 +1,11 @@
+.app {
+  margin: 0 auto;
+  padding: 2em;
+  width: 90%;
+}
+
+@media only screen and (min-width: 768px) {
+  .app {
+    margin: 0 2em;
+  }
+}
