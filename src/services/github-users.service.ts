@@ -1,8 +1,12 @@
 import axios from "axios";
 
+import config from "../config/config.json";
+
 export default function githubUsersEndpoint() {
+    const {githubUsers: githubUsersUrl } = config.urls;
+
     const endpoint = axios.create({
-        baseURL: "https://api.github.com/search",
+        baseURL: githubUsersUrl,
     });
 
     const getUsers = async (i_User: string, page: number = 1) => {

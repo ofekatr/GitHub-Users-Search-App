@@ -1,0 +1,5 @@
+{
+    "urls": {
+        "githubUsers": "https://api.github.com/search"
+    }
+}
