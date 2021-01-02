@@ -29,7 +29,6 @@ export default function useUsersUpdater() {
 
     if (submittedUser === "") return;
     const updateUsers = async () => {
-      console.log(page);
       try {
         setLoading(true);
         const newUsers = (await getUsers(submittedUser, pageNumber)).data.items;

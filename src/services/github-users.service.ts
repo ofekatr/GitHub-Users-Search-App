@@ -10,7 +10,6 @@ export default function githubUsersEndpoint() {
     });
 
     const getUsers = async (i_User: string, page: number = 1) => {
-        console.log("ACCESSING");
         return await endpoint.get(`/users?q=${i_User} in:user&page=${page}&per_page=${limit}`);
     }
 

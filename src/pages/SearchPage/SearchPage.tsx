@@ -5,6 +5,8 @@ import useUsersUpdater, {
   IUseUpdateUsersOutput as IUseUsersUpdaterOutput,
 } from "../../hooks/useUsersUpdater";
 
+import "./SearchPage.scss";
+
 export default function SearchPage() {
   const {
     pageState,
@@ -16,9 +18,11 @@ export default function SearchPage() {
   }: IUseUsersUpdaterOutput = useUsersUpdater();
 
   return (
-    <>
+    <div className="search-page">
       <SearchInput setSubmittedUser={setSubmittedUser} />
-      <SearchResultsList {...{ users, loading, error, submittedUser, hasMore, pageState }} />
-    </>
+      <SearchResultsList
+        {...{ users, loading, error, submittedUser, hasMore, pageState }}
+      />
+    </div>
   );
 }

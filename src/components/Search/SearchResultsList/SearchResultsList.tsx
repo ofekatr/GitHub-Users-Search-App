@@ -41,8 +41,6 @@ export default function SearchResults({
     [loading, hasMore, error]
   );
 
-  console.log(users);
-
   return (
     <>
       <div>
