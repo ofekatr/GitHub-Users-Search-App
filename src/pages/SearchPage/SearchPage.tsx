@@ -12,12 +12,13 @@ export default function SearchPage() {
     users,
     loading,
     error,
+    hasMore,
   }: IUseUsersUpdaterOutput = useUsersUpdater();
 
   return (
     <>
       <SearchInput setSubmittedUser={setSubmittedUser} />
-      <SearchResultsList {...{ users, loading, error, pageState }} />
+      <SearchResultsList {...{ users, loading, error, submittedUser, hasMore, pageState }} />
     </>
   );
 }

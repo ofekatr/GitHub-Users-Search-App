@@ -7,6 +7,7 @@ export interface IUseUpdateUsersOutput {
   users: string[];
   loading: boolean;
   error: boolean;
+  hasMore: boolean;
 }
 
 export default function useUsersUpdater() {
@@ -15,20 +16,23 @@ export default function useUsersUpdater() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
   const [users, setUsers] = useState(new Array<string>());
 
   const { getUsers } = githubUsersEndpoint();
 
   useEffect(() => {
     if (submittedUser === "") return;
-    setLoading(true);
     const updateUsers = async () => {
       try {
-        const newUsers = await getUsers(submittedUser, page);
+        setLoading(true);
+        const newUsers = (await getUsers(submittedUser, page)).data.items;
         setUsers((prevUsers: string[]) => [
           ...(page > 1 ? prevUsers : []),
-          ...newUsers.data.items.map((item: { login: string }) => item.login),
+          ...newUsers.map((item: { login: string }) => item.login),
         ]);
+        setLoading(false);
+        setHasMore(newUsers.length > 0);
       } catch (e) {
         setError(true);
       }
@@ -42,5 +46,6 @@ export default function useUsersUpdater() {
     users,
     loading,
     error,
+    hasMore,
   } as IUseUpdateUsersOutput;
 }
