@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Usertron
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An app for easily searching users on GitHub.
 
 ## Available Scripts
 
