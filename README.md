@@ -1,6 +1,6 @@
 # Usertron
 
-An app for easily searching users on Github.
+An app for easily searching users on GitHub.
 
 ## Available Scripts
 
