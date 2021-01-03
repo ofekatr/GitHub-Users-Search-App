@@ -17,11 +17,9 @@ export default function SearchResult({
           <div className="login-container">
             <p className="login">{login}</p>
           </div>
-          {email && (
             <div className="email-container">
-              <p className="email">{email}</p>
+              <p className="email">{email || "No email"}</p>
             </div>
-          )}
             <div className="bio-container">
               <p className="bio">{bio || "No description."}</p>
             </div>
