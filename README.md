@@ -2,6 +2,8 @@
 
 An app for easily searching users on GitHub.
 
+Implements infinite scrolling through search results.
+
 ## Available Scripts
 
 In the project directory, you can run:
