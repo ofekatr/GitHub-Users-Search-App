@@ -2,6 +2,9 @@ import React from "react";
 
 import "./SearchResult.scss";
 
+/**
+ * @description A single search result. Meant to be contained in SearchResultsList.
+ */
 export default function SearchResult({
   user: { login, email, bio, avatar_url, html_url },
 }) {

@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 import "./HomePage.scss";
 
+/**
+ * @description Home page. Route: /
+ */
 export default function HomePage() {
   return (
     <div className="home-page">

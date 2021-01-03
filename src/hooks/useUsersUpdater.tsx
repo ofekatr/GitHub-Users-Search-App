@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import githubUsersEndpoint from "../services/github-users.service";
 
-export interface IUseUpdateUsersOutput {
+/**
+ * @description Output type for the useUsersUpdater hook.
+ */
+export interface IUseUsersUpdaterOutput {
   pageState: [
     { pageNumber: number },
     React.Dispatch<React.SetStateAction<{ pageNumber: number }>>
@@ -14,6 +17,9 @@ export interface IUseUpdateUsersOutput {
   hasMore: boolean;
 }
 
+/**
+ * @description Handles updating search results in the search page.
+ */
 export default function useUsersUpdater() {
   const [submittedUser, setSubmittedUser] = useState("");
   const [page, setPage] = useState({ pageNumber: 1 });
@@ -67,5 +73,5 @@ export default function useUsersUpdater() {
     error,
     hasMore,
     totalCount,
-  } as IUseUpdateUsersOutput;
+  } as IUseUsersUpdaterOutput;
 }

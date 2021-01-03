@@ -9,6 +9,16 @@ body {
   background: #ddd;
 }
 
+@keyframes fade-in {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   html {
     font-size: 0.5rem;

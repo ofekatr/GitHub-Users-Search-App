@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import SearchInput from "../../components/Search/SearchInput/SearchInput";
 import SearchResultsList from "../../components/Search/SearchResultsList/SearchResultsList";
 import useUsersUpdater, {
-  IUseUpdateUsersOutput as IUseUsersUpdaterOutput,
+  IUseUsersUpdaterOutput as IUseUsersUpdaterOutput,
 } from "../../hooks/useUsersUpdater";
 
 import "./SearchPage.scss";
 
+/**
+ * @description Search page. Route: /search
+ */
 export default function SearchPage() {
   const {
     pageState,

@@ -2,6 +2,9 @@ import axios from "axios";
 
 import config from "../config/config.json";
 
+/**
+ * @description A service for handling API requests to query Github users.
+ */
 export default function githubUsersEndpoint() {
     const {githubSearch: githubSearchUrl } = config.urls;
     const limit = 10;

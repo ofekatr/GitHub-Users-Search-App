@@ -3,6 +3,9 @@ import React, { useCallback, useRef } from "react";
 import SearchResult from "../SearchResult/SearchResult";
 import "./SearchResultsList.scss";
 
+/**
+ * @description Props for SearchResult component.
+ */
 interface ISearchResultsProps {
   users;
   totalCount: number;
@@ -16,7 +19,10 @@ interface ISearchResultsProps {
   ];
 }
 
-export default function SearchResults({
+/**
+ * @description Contains and displays search results in the search page.
+ */
+export default function SearchResultsList({
   users,
   totalCount,
   loading,

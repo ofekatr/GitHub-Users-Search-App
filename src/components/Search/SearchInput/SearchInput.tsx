@@ -3,10 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useForm from "../../../hooks/useForm";
 import "./SearchInput.scss";
 
+/**
+ * @description Props for the SearchInput component.
+ */
 interface ISearchInputProps {
   setSubmittedUser: React.Dispatch<React.SetStateAction<string>>;
 }
 
+/**
+ * @description Seachbar for the search page.
+ */
 export default function SearchInput({ setSubmittedUser }: ISearchInputProps) {
   const {
     inputs: { inputUser },

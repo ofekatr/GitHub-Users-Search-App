@@ -9,6 +9,9 @@ import {
 import HomePage from "../../pages/HomePage/HomePage";
 import SearchPage from "../../pages/SearchPage/SearchPage";
 
+/**
+ * @description For app routes management.
+ */
 export default function AppRouter() {
   return (
     <Router>
