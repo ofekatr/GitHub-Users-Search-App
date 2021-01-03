@@ -6,9 +6,6 @@ Implements infinite scrolling through search results.
 
 ![Screenshot (130)](https://user-images.githubusercontent.com/46415136/103475573-ea95bb00-4db6-11eb-86d2-b2701dca1d9e.png)
 
-![Screenshot (132)](https://user-images.githubusercontent.com/46415136/103475570-e9648e00-4db6-11eb-8816-c6ced9dd50e0.png)
-
-![usertron](https://user-images.githubusercontent.com/46415136/103475571-e9fd2480-4db6-11eb-9340-0e5eae895cb7.png)
 
 ## Available Scripts
 
