@@ -1,6 +1,9 @@
 a {
   text-decoration: none;
   color: inherit;
+  outline: none;
+
+  --grey: #888;
 }
 
 .search-result-container {
@@ -52,13 +55,14 @@ a {
     white-space: nowrap;
     overflow: hidden;
 
-    color: #888;
+    color: var(--grey);
 
     grid-area: 2 / 3 / 3 / 4;
   }
 
   .bio-container {
     grid-area: 3 / 2 / 4 / 4;
+    color: var(--grey);
   }
 }
 
