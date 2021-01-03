@@ -4,7 +4,11 @@ An app for easily searching users on GitHub.
 
 Implements infinite scrolling through search results.
 
-![Screenshot (130)](https://user-images.githubusercontent.com/46415136/103475573-ea95bb00-4db6-11eb-86d2-b2701dca1d9e.png)
+![Screenshot (130)](https://user-images.githubusercontent.com/46415136/103475635-a7881780-4db7-11eb-8ab6-6c94b0013264.png)
+
+![Screenshot (133)](https://user-images.githubusercontent.com/46415136/103475636-a820ae00-4db7-11eb-874f-5d7e2c56fda2.png)
+
+![usertron](https://user-images.githubusercontent.com/46415136/103475637-a951db00-4db7-11eb-9ec7-029de94aa6a7.png)
 
 
 ## Available Scripts
